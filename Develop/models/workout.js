@@ -14,14 +14,14 @@ var workoutSchema = new schema({
         {
         type:{
             type: String,
-            required: [true, 'Why no type?']
+            
         },
         name:{
             type: String
         },
         duration:{
-            type: Number,
-            required: [true, 'Why no duration?']
+            type: Number
+            
         },
         distance:{
             type: Number
@@ -38,13 +38,13 @@ var workoutSchema = new schema({
         }
     ]
 },opts // got this from https://mongoosejs.com/docs/tutorials/virtuals.html
-)
+);
 
-// workoutSchema.virtual('totalDuration').get(function(){
-//    return this.exercises.reduce((total,exercise) => {
-//         return total + exercise.duration;
-//     })
-// })
+workoutSchema.virtual("totalDuration").get(function(){
+   return this.exercises.reduce((total, exercise) => {
+        return total + exercise.duration;
+    },0)
+})
 
 var Workout = mongoose.model("Workout", workoutSchema)
 

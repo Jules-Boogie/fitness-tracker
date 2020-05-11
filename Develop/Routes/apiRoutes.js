@@ -31,7 +31,7 @@ module.exports = function (app) {
     // get/read
 
     app.get("/api/workouts/range", function (req, res) {
-        db.Workout.find()
+        db.Workout.find({})
             .then(db => {
                 res.json(db);
             })
@@ -41,66 +41,66 @@ module.exports = function (app) {
     })
 
 
-app.get("/api/workouts", function (req, res) {
-    db.Workout.find()
-    .then(db => {
-        res.json(db);
+    app.get("/api/workouts", function (req, res) {
+        db.Workout.find({})
+            .then(db => {
+                res.json(db);
+            })
+            .catch(err => {
+                res.json(err);
+            });
+
     })
-    .catch(err => {
-        res.json(err);
-    });
-
-})
 
 
-//post/create/insert
-app.post("/api/workouts/range", function (req, res) {
-    db.Workout.create({})
-        .then(workout => {
-            res.json(workout);
-            
-        })
-        .catch(err => {
-            res.json(err);
-        });
-})
+    //post/create/insert
+    // app.post("/api/workouts/range", function (req, res) {
+    //     db.Workout.create({})
+    //         .then(workout => {
+    //             res.json(workout);
 
-app.post("/api/workouts", function ({body}, res) {
-    db.Workout.create({})
-        .then(workout => {
-            res.json(workout);
-        })
-        .catch(err => {
-            res.json(err);
-        });
-})
+    //         })
+    //         .catch(err => {
+    //             res.json(err);
+    //         });
+    // })
 
-
-
-//put/update
-
-app.put("/api/workouts/:id", function (req, res) {
-    let id = req.params.id;
-    let workout = req.body;
-    db.Workout.findByIdAndUpdate(id, {$push:{exercises:workout}}
-    ).then(function(data){
-        res.json(data)
-    }).catch(function(err){
-        res.json(err)
+    app.post("/api/workouts", function ({body}, res) {
+        db.Workout.create({})
+            .then(workout => {
+                res.json(workout);
+            })
+            .catch(err => {
+                res.json(err);
+            });
     })
-})
 
 
 
-// app.delete("/clearall", (req, res) => {
-//     db.Workout.remove({}, (error, response) => {
-//       if (error) {
-//         res.send(error);
-//       } else {
-//         res.send(response);
-//       }
-//     });
-//   });
+    //put/update
+
+    app.put("/api/workouts/:id", function (req, res) {
+        let id = req.params.id;
+        let workout = req.body;
+        db.Workout.findByIdAndUpdate(id, { $push: { exercises: workout } }
+        ).then(function (data) {
+            res.json(data)
+        }).catch(function (err) {
+            res.json(err)
+        })
+    })
+
+
+
+    // app.delete("/clearall", (req, res) => {
+    //     db.Workout.remove({}, (error, response) => {
+    //       if (error) {
+    //         res.send(error);
+    //       } else {
+    //         res.send(response);
+    //       }
+    //     });
+    //   });
 
 
 
