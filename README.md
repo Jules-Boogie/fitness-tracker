@@ -4,14 +4,14 @@
 Welcome to the Workout Tracker Application Repository!
 
 ## Summary 
- The app lets a user add and track workouts. In this activity, I worked on the back end component as the front end was provided. 
+ The app lets a user add and track workouts. In this activity, I worked on the back end component as all of the front end code  was provided. 
 
 ## Workout Tracker Application Link
 
 [Live Deployed Link](https://workoutappi.herokuapp.com/)
 
 ## App Photo
-
+![App Photo](https://github.com/Jules-Boogie/fitness-tracker/blob/master/public/Capture.PNG)
 
 
 
