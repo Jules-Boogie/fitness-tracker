@@ -42,7 +42,7 @@ module.exports = function (app) {
 
 
     app.get("/api/workouts", function (req, res) {
-        db.Workout.find({})
+        db.Workout.find({},{},sort({day: -1}))
             .then(db => {
                 res.json(db);
             })
