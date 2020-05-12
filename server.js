@@ -11,7 +11,7 @@ app.use(logger("dev"))
 
 const PORT = process.env.PORT || 3500;
 // set up default mongodb connection
-var mongodb = process.env.MONGODB_URI ||"mongodb://localhost/workout"
+var mongodb = process.env.MONGODB_URI ||"mongodb://julesg:Jule1995!@ds219191.mlab.com:19191/heroku_zdhfk7wn"
 mongoose.connect(mongodb , { useNewUrlParser: true, useFindAndModify:false });
 
 app.use(express.urlencoded({ extended: true }));
