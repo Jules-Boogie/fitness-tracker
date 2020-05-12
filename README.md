@@ -11,7 +11,7 @@ Welcome to the Workout Tracker Application Repository!
 [Live Deployed Link](https://workoutappi.herokuapp.com/)
 
 ## App Photo
-
+![App Photo](https://github.com/Jules-Boogie/fitness-tracker/blob/master/public/Capture.PNG)
 
 
 
