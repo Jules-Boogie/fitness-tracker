@@ -1,17 +1,15 @@
 
 
-# Workout Tracker Application
-Welcome to the Workout Tracker Application Repository!
+# Employee Directory Application
+
 
 ## Summary 
- The app lets a user add and track workouts. In this activity, I worked on the back end component as all of the front end code  was provided. 
+ The app lets you get basic information about all the employees at a workplace. This app was built from scratch with the help of the javascript library called React. After drawing out the various sections of the application, ReactJS was used to build stateful and stateless components. The stateful component is class based and the stateless components are functions. The SRC folder where most of the code was added was divided into components, layout, and hoc folders. Each folder housed components with different uses. 
 
-## Workout Tracker Application Link
-
-[Live Deployed Link](https://workoutappi.herokuapp.com/)
+appi.herokuapp.com/)
 
 ## App Photo
-![App Photo](https://github.com/Jules-Boogie/fitness-tracker/blob/master/public/Capture.PNG)
+![App Photo](https://github.com/Jules-Boogie/employee-directory/blob/master/employees/public/Capture.PNG)
 
 
 
@@ -19,38 +17,34 @@ Welcome to the Workout Tracker Application Repository!
 | Technologies | Description  |
 |---------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------:|
 | [Nodejs](https://nodejs.org/en/docs/)                                     |             Node.js is designed to build scalable network applications.                 |
-| [Morgan](http://expressjs.com/en/resources/middleware/morgan.html)                |  HTTP request logger middleware that automatically creates request logs.                   |
-| [Mongodb](https://www.mongodb.com/)                              |           Document-oriented database used for storage data.               |
-| [Mongoose](https://mongoosejs.com/)                              |           Object Data Modeling library for MongoDB and Node.js              |
+| [React](https://reactjs.org/)                |   A declarative, component based Javascript library for building interactive user interface                 |
+
 
 
 
 ## Code Snippet
-The code below updates the exercise array using the $push method. 
+The handleSearchField function is added to the search button as an Onclick event. What it does is to go through every person in the stores employee array and compare the current person's name to the search value in the search box. It stores the returned value into the searchResult variable which is then set as the key to employee in the setState object below. 
 ```
-app.put("/api/workouts/:id", function (req, res) {
-        let id = req.params.id;
-        let workout = req.body;
-        db.Workout.findByIdAndUpdate(id, { $push: { exercises: workout } }
-        ).then(function (data) {
-            res.json(data)
-        }).catch(function (err) {
-            res.json(err)
-        })
-    })
+handleSearchField = (event) =>{
+         event.preventDefault(); 
+         var searchResult = this.state.employee.filter(person => person.firstName.toLowerCase() === this.state.search)
+                this.setState({
+                    employee: searchResult
+                })
+     }
+
 ```
 
 ## Clone Repository
- - Clone this repo to your local machine using ```git@github.com:Jules-Boogie/fitness-tracker.git ``` with terminal in the directory of your choice. 
+ - Clone this repo to your local machine using ```git@github.com:Jules-Boogie/employee-directory.git ``` with terminal in the directory of your choice. 
 
 
 
 ## Installation Procedures
 ```
-$ npm init -y 
-$ npm install express
-$ npm install mongoose
-$ npm install morgan
+$ npx create-react-app <myappname>
+$ npm axios
+
 
 ```
 
